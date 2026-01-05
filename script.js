@@ -47,7 +47,7 @@
                 if (!value || value.trim().length < 2) {
                     return 'Bitte geben Sie einen gültigen Namen ein (mindestens 2 Zeichen)';
                 }
-                if (!/^[a-zA-ZÀ-ÿs-']{2,50}$/.test(value)) {
+                if (!/^[a-zA-ZÀ-ÿ\s-']{2,50}$/.test(value)) {
                     return 'Der Name darf nur Buchstaben, Leerzeichen, Bindestriche und Apostrophe enthalten';
                 }
                 return null;
@@ -57,7 +57,7 @@
                 if (!value || !value.trim()) {
                     return 'Bitte geben Sie Ihre E-Mail-Adresse ein';
                 }
-                if (!/^[^s@]+@[^s@]+.[^s@]+$/.test(value)) {
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
                     return 'Bitte geben Sie eine gültige E-Mail-Adresse ein';
                 }
                 return null;
@@ -67,7 +67,7 @@
                 if (!value || !value.trim()) {
                     return required ? 'Bitte geben Sie Ihre Telefonnummer ein' : null;
                 }
-                if (!/^[ds+-()]{10,20}$/.test(value)) {
+                if (!/^[\d\s+\-()]{10,20}$/.test(value)) {
                     return 'Bitte geben Sie eine gültige Telefonnummer ein (10-20 Zeichen)';
                 }
                 return null;
